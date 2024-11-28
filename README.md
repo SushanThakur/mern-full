@@ -1,7 +1,7 @@
 
 # Fullstack Inventory Management App
 
-1. Home Page (Views all The available products)
+1. Home Page (Views all The available products, with options to delete and edit products)
 
 ![Home Page](./images/home-page.png)
 

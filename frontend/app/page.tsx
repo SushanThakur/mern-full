@@ -38,7 +38,6 @@ const Page = () => {
       })
       if (!res.ok) {
         alert("Someting went wrong!");
-        return 0;
       }
       alert("Product deleted sucessfully!");
     } catch (error) {
@@ -114,7 +113,7 @@ const Page = () => {
           <div className="grid gap-8 w-full lg:grid-cols-2 sm:grid-col-1">
 
             {products.map((product) => (
-              <Card key={product._id} {...product} handleDelete={handleDelete} handleEdit={handleEdit} />
+              < Card {...product} handleDelete={handleDelete} handleEdit={handleEdit} />
             ))}
 
             {edit && <Edit
@@ -133,17 +132,18 @@ const Page = () => {
   );
 };
 
-const Card = (
-  props: {
-    _id: string
-    name: string,
-    price: string,
-    image: string,
-    handleDelete: (id: string) => void,
-    handleEdit: (id: string, name: string, price: string, image: string) => void,
-  }) => {
+type CardProps = {
+  _id: string;
+  name: string;
+  price: string;
+  image: string;
+  handleDelete: (id: string) => void;
+  handleEdit: (id: string, name: string, price: string, image: string) => void;
+};
 
-  const { _id, name, price, image, handleDelete, handleEdit } = props;
+const Card: React.FC<CardProps> = ({ _id, name, price, image, handleDelete, handleEdit }) => {
+
+  // const { _id, name, price, image, handleDelete, handleEdit } = props;
 
   return (
     <>
